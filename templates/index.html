@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>曲面生成器</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>曲面生成器</h1>
+        <div class="control-panel">
+            <div class="form-group">
+                <label for="fixed_height">固定高度：</label>
+                <input type="number" id="fixed_height" value="0.0" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="num_edge_points">邊緣點數：</label>
+                <input type="number" id="num_edge_points" value="8" min="3">
+            </div>
+            <div class="form-group">
+                <label for="num_random_points">隨機點數：</label>
+                <input type="number" id="num_random_points" value="5" min="1">
+            </div>
+            <div class="form-group">
+                <label for="random_centred_points">中心點隨機範圍：</label>
+                <input type="number" id="random_centred_points" value="0.5" step="0.1" min="0">
+            </div>
+            <div class="form-group">
+                <label for="interpolated_z_method">插值方法：</label>
+                <select id="interpolated_z_method">
+                    <option value="cubic">三次樣條插值 - 平滑連續</option>
+                    <option value="linear">線性插值 - 快速簡單</option>
+                    <option value="nearest">最近鄰插值 - 保持原值</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="smoothness">平滑度：</label>
+                <input type="number" id="smoothness" value="0.5" step="0.1" min="0" max="1">
+            </div>
+            <button id="generate-btn">生成曲面</button>
+        </div>
+        <div id="plot-container"></div>
+    </div>
+    <script src="static/js/main.js"></script>
+</body>
+</html> 
